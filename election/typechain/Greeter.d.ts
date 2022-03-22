@@ -7,7 +7,6 @@ import {
   EventFilter,
   Signer,
   BigNumber,
-  BigNumberish,
   PopulatedTransaction,
 } from "ethers";
 import {
@@ -18,7 +17,7 @@ import {
 } from "@ethersproject/contracts";
 import { BytesLike } from "@ethersproject/bytes";
 import { Listener, Provider } from "@ethersproject/providers";
-import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
+import { FunctionFragment, Result } from "@ethersproject/abi";
 
 interface GreeterInterface extends ethers.utils.Interface {
   functions: {
