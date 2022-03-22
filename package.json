@@ -6,14 +6,14 @@
   "private": true,
   "workspaces": [
     "frontend",
-    "election"
+    "contracts"
   ],
   "scripts": {
-    "test": "yarn workspace @dapp-vue3/election run test",
-    "start:node": "yarn workspace @dapp-vue3/election run node",
-    "deploy:local": "yarn workspace @dapp-vue3/election run deploy:local",
-    "deploy:rinkeby": "yarn workspace @dapp-vue3/election run deploy:rinkeby",
-    "build:contracts": "yarn workspace @dapp-vue3/election run build",
+    "test": "yarn workspace @dapp-vue3/contracts run test",
+    "start:node": "yarn workspace @dapp-vue3/contracts run node",
+    "deploy:local": "yarn workspace @dapp-vue3/contracts run deploy:local",
+    "deploy:rinkeby": "yarn workspace @dapp-vue3/contracts run deploy:rinkeby",
+    "build:contracts": "yarn workspace @dapp-vue3/contracts run build",
     "dev": "yarn workspace @dapp-vue3/frontend run dev",
     "build:vue": "yarn workspace @dapp-vue3/frontend run build",
     "build": "yarn build:contracts && yarn build:vue"

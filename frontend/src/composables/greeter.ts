@@ -1,8 +1,8 @@
 import { markRaw, watch, ref, computed } from "vue";
 import { ethers } from "ethers";
 import { JsonRpcSigner } from "../utils/ethers";
-import contractData from "@dapp-vue3/election/artifacts/contracts/Greeter.sol/Greeter.json";
-import { Greeter } from "@dapp-vue3/election/typechain/Greeter";
+import contractData from "@dapp-vue3/contracts/artifacts/contracts/Greeter.sol/Greeter.json";
+import { Greeter } from "@dapp-vue3/contracts/typechain/Greeter";
 import useMetaMask from "./metamask";
 import NETWORK from "../constants";
 import { isAddress } from "ethers/lib/utils";
@@ -12,9 +12,7 @@ const { supportedChainIds } = useConfig();
 const { getBalance, hasSetupWallet, signer, chainId } = useMetaMask();
 
 const greeterAddress: Readonly<Record<string, string>> = {
-  localhost: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-  rinkeby: "0xBdeC61D40CEA359f92BaC3AEE54F3148e05Ec88B",
-  goerli: "0xa1c2109014EB3093cdcE1896e1c2A2cB082Ea97a",
+  rinkeby: "0x12Ed9f5f32D5570b0404A0598268A6AF9339b1cb",
 };
 
 const greeter = ref<Greeter>();
@@ -68,7 +66,7 @@ export function useGreeterContract() {
     contractData,
     greeterAddress: computed(() => greeter.value?.address),
     createContract,
-    connectContractAt,
+    connectContractAt
   };
 }
 
