@@ -1,8 +1,8 @@
 import { markRaw, watch, ref, computed } from "vue";
 import { ethers } from "ethers";
 import { JsonRpcSigner } from "../utils/ethers";
-import contractData from "@dapp-vue3/contracts/artifacts/contracts/Greeter.sol/Greeter.json";
-import { Greeter } from "@dapp-vue3/contracts/typechain/Greeter";
+import contractData from "@dapp-vue3/election/artifacts/contracts/Greeter.sol/Greeter.json";
+import { Greeter } from "@dapp-vue3/election/typechain/Greeter";
 import useMetaMask from "./metamask";
 import NETWORK from "../constants";
 import { isAddress } from "ethers/lib/utils";
@@ -93,6 +93,7 @@ export function useGetGreeting() {
       isLoading.value = true;
       greeting.value = await greeter.greet();
     } catch (e) {
+      // @ts-ignore
       errMsg.value = e;
     } finally {
       isLoading.value = false;
@@ -123,6 +124,7 @@ export function useSetGreeting() {
       await tx.wait();
       isPending.value = false;
     } catch (e) {
+      // @ts-ignore
       errMsg.value = e;
     } finally {
       isLoading.value = false;
