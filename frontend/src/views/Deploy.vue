@@ -4,7 +4,7 @@ import { ContractFactory } from "ethers";
 import useMetaMask from "../composables/metamask";
 import { useGreeterContract } from "../composables/greeter";
 import { Greeter } from "@dapp-vue3/contracts/typechain/Greeter";
-import { GreeterFactory } from "@dapp-vue3/contracts/typechain/GreeterFactory";
+import { Greeter__factory as GreeterFactory } from "@dapp-vue3/contracts/typechain/factories/Greeter__factory";
 
 export default defineComponent({
   setup() {

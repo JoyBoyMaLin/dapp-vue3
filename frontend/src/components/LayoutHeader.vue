@@ -6,6 +6,8 @@ import NETWORK from "../constants";
 const navigation = [
   { name: "Deploy", href: "/deploy" },
   { name: "Contract", href: "/contract" },
+  { name: "Election", href: "/election" },
+  { name: "Coin Toss", href: "/coin-toss" },
 ];
 
 export default defineComponent({

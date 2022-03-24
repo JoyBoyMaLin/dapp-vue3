@@ -127,7 +127,7 @@ export function useSetGreeting() {
     } finally {
       isLoading.value = false;
     }
-    getBalance();
+    await getBalance();
   };
 
   return { isLoading, isPending, errMsg, setGreeting };
