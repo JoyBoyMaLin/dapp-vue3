@@ -22,12 +22,13 @@ async function main() {
     "0x8Fbeb009Fa54f6cFAb19ab231C1Fd53A5cE176CC"
   );
   // 循环100次
-  for (let i = 0; i < 100; i++) {
-    const rollLog = await coinToss.functions.rollDice(true, {
-      value: ethers.utils.parseEther("0.01"),
-    });
-    console.log(rollLog);
-  }
+  // for (let i = 0; i < 100; i++) {
+  //   const rollLog = await coinToss.functions.rollDice(true, {
+  //     value: ethers.utils.parseEther("0.01"),
+  //   });
+  //   console.log(rollLog);
+  // }
+  await coinToss.withdrawFund();
 }
 
 main().catch((error) => {

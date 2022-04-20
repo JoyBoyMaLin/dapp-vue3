@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@0xsequence/erc-1155@^3.1.0":
+  version "3.1.0"
+  resolved "https://repo.huaweicloud.com/repository/npm/@0xsequence/erc-1155/-/erc-1155-3.1.0.tgz#0e3b4ccf23afee38db490c9084fa248461ebfea7"
+  integrity sha512-nJqCN0MY+hboHF74p5RXv4MR702beMDv2Wh69I8yjvUXk8XUlgy7qyKVnXUSlWIUNIGYL05yASpIeKmMNs2Z6A==
+
 "@antfu/utils@^0.5.0":
   version "0.5.0"
   resolved "https://repo.huaweicloud.com/repository/npm/@antfu/utils/-/utils-0.5.0.tgz#b3169429997cb87850e543cb74660f9e2fed7efd"

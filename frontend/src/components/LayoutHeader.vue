@@ -4,10 +4,9 @@ import useMetaMask from "../composables/metamask";
 import NETWORK from "../constants";
 
 const navigation = [
-  { name: "Deploy", href: "/deploy" },
-  { name: "Contract", href: "/contract" },
-  { name: "Election", href: "/election" },
-  { name: "Coin Toss", href: "/coin-toss" },
+  {name: "Deploy", href: "/deploy"},
+  {name: "Contract", href: "/contract"},
+  {name: "Coin Toss", href: "/coin-toss"},
 ];
 
 export default defineComponent({
@@ -24,7 +23,7 @@ export default defineComponent({
 
     const displayUserAddress = computed(() => {
       return (
-        userAddress.value.slice(0, 6) + "..." + userAddress.value.slice(-4)
+          userAddress.value.slice(0, 6) + "..." + userAddress.value.slice(-4)
       );
     });
 
@@ -44,27 +43,27 @@ export default defineComponent({
 <template>
   <header class="bg-white">
     <nav
-      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-      aria-label="Top"
+        aria-label="Top"
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
     >
       <div class="py-4 flex items-center justify-between border-b border-gray-300">
         <div class="flex space-x-4 items-center">
           <div class="">
             <router-link to="/">
               <img
-                class="h-10 min-w-10"
-                src="../assets/logo.png"
-                alt="logo"
+                  alt="logo"
+                  class="h-10 min-w-10"
+                  src="../assets/logo.png"
               />
             </router-link>
           </div>
           <router-link
-            v-for="link in navigation"
-            :key="link.name"
-            :to="link.href"
-            active-class="font-bold"
-            exact
-            class="font-medium text-gray-500 hover:text-gray-900"
+              v-for="link in navigation"
+              :key="link.name"
+              :to="link.href"
+              active-class="font-bold"
+              class="font-medium text-gray-500 hover:text-gray-900"
+              exact
           >
             {{ link.name }}
           </router-link>
@@ -73,23 +72,27 @@ export default defineComponent({
 
         <div class="flex space-x-4">
           <div
-            v-if="!isSupportedNetwork"
-            class="flex items-center"
+              v-if="!isSupportedNetwork"
+              class="flex items-center"
           >
-            <div class="text-gray-500"> <span class="uppercase">{{ chainName }}</span> is unsupported network</div>
+            <div class="text-gray-500"><span class="uppercase">{{ chainName }}</span> is unsupported network</div>
           </div>
           <div
-            v-else-if="isConnected() && hasSetupWallet"
-            class="flex items-center"
+              v-else-if="isConnected() && hasSetupWallet"
+              class="flex items-center"
           >
-            <div class="uppercase mr-4 py-3 px-4 rounded inline-block bg-light-blue-100 text-gray-600">{{ chainName }}</div>
+            <div class="uppercase mr-4 py-3 px-4 rounded inline-block bg-light-blue-100 text-gray-600">{{
+                chainName
+              }}
+            </div>
             <div class="py-3 px-4 rounded inline-block bg-gray-100 text-gray-600">{{ displayUserAddress }}</div>
           </div>
           <button
-            v-else
-            @click="connectWallet"
-            class="ml-2 p-2 sm:text-xl sm:px-6 sm:py-3 rounded inline-block bg-blue-100 text-gray-600 cursor-pointer hover:bg-blue-200 focus:outline-none"
-          >Connect Wallet</button>
+              v-else
+              class="ml-2 p-2 sm:text-xl sm:px-6 sm:py-3 rounded inline-block bg-blue-100 text-gray-600 cursor-pointer hover:bg-blue-200 focus:outline-none"
+              @click="connectWallet"
+          >Connect Wallet
+          </button>
         </div>
       </div>
       <div class="py-4 flex flex-wrap justify-center space-x-6">

@@ -21,14 +21,24 @@ async function main() {
   const coinToss = await CoinToss.attach(
     "0x8Fbeb009Fa54f6cFAb19ab231C1Fd53A5cE176CC"
   );
-  const joinLog = await coinToss.functions.join({
-    value: ethers.utils.parseEther("5"),
+  // const joinLog = await coinToss.functions.join({
+  //   value: ethers.utils.parseEther("5"),
+  // });
+  // console.log(joinLog);
+  const eventDiceLanded = await coinToss.filters.DiceLanded();
+  const logs = await coinToss.queryFilter(eventDiceLanded, 0, "latest");
+  logs.forEach((log) => {
+    console.log(
+      ethers.utils.formatUnits(log.args.requestId, 0),
+      log.args.roller,
+      log.args.guess.toString(),
+      log.args.rollValue.toString()
+    );
   });
-  console.log(joinLog);
-  const events = await coinToss.filters.DiceLanded();
-  await coinToss.on(events, (requestId, roller, guess, rollValue) => {
-    console.log(requestId, roller, guess, rollValue);
-  });
+  // const events = await coinToss.filters.DiceLanded();
+  // await coinToss.on(events, (requestId, roller, guess, rollValue) => {
+  //   console.log(requestId, roller, guess, rollValue);
+  // });
 }
 
 main().catch((error) => {
